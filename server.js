@@ -8,13 +8,12 @@ server.on('connection', (sock) => {
     console.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
     
     sock.on('data', (data) => {
-        console.log(i++);
         console.log('DATA ' + sock.remoteAddress + ':=> ' + data);
-        if(i.toString() !== '5'){
-            if (data == '6035512080') {
-               
-                sock.write(' OK ');
-            }
+        console.log(i++);
+        if (i == 1 || i==0) {
+            sock.write(' OK ');
+        }
+        if(i !== 6){
             if (data == Math.floor(Math.random() * 21)) {
                 i=0;
                 sock.write('BINGO');
