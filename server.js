@@ -12,8 +12,9 @@ server.on('connection', (sock) => {
         console.log(i++);
         if (i == 1 || i==0) {
             sock.write(' OK ');
+            console.log(i++);
         }
-        if(i !== 6){
+        if(i+1 !== 8){
             if (data == Math.floor(Math.random() * 21)) {
                 i=0;
                 sock.write('BINGO');
@@ -27,6 +28,7 @@ server.on('connection', (sock) => {
             sock.write('END');
             
         }
+        
     })
 
     sock.on('error',()=>{
